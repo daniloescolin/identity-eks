@@ -13,8 +13,7 @@ spec:
   # Allow manifests to deploy from any Git repos
   sourceRepos:
   - 'https://github.com/timothy-spencer/idp-dev.git'
-  - github.com/weaveworks/flagger/kustomize/base/flagger
-  - github.com/weaveworks/flagger/kustomize/base/prometheus
+  - 'https://github.com/weaveworks/flagger.git'
 
   # Only permit applications to deploy to the guestbook namespace in the same cluster
   destinations:
