@@ -62,4 +62,8 @@ Once argocd is done launching everything, these things should be running:
 
 ## How to make changes to a cluster
 
+## Getting Logs
+
+## Accessing pods
+
 ## Security

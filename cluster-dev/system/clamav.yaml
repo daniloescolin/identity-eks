@@ -20,9 +20,9 @@ spec:
     # kustomize specific config
     kustomize:
       # Optional kustomize version. Note: version must be configured in argocd-cm ConfigMap
-      version: v3.8.1
+      #version: v3.5.4
       # Optional image name prefix
-      #namePrefix: system-
+      namePrefix: system-
       # Optional images passed to "kustomize edit set image".
       #images:
       #- logindotgov/pretend-app

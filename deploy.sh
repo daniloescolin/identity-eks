@@ -68,6 +68,7 @@ aws eks update-kubeconfig --name "$TF_VAR_cluster_name"
 
 # update the kubernetes services/configmap using terraform data.
 terraform output config_map_aws_auth | kubectl apply -f -
+kubectl create namespace idp && true
 terraform output idp_redis_service | kubectl apply -f - -n idp
 terraform output idp_db_configmap | kubectl apply -f - -n idp
 popd

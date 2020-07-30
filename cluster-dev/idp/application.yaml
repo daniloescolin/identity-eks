@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: clamav
+  name: idp
   # You'll usually want to add your resources to the argocd namespace.
   namespace: argocd
   # Add a this finalizer ONLY if you want these to cascade delete.
@@ -9,20 +9,20 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   # The project the application belongs to.
-  project: default
+  project: idp
 
   # Source of the application manifests
   source:
-    repoURL: https://github.com/timothy-spencer/identity-eks.git
+    repoURL: https://github.com/timothy-spencer/idp-dev.git
     targetRevision: HEAD
-    path: base/clamav
+    path: .
 
     # kustomize specific config
     kustomize:
       # Optional kustomize version. Note: version must be configured in argocd-cm ConfigMap
-      version: v3.8.1
+      #version: v3.5.4
       # Optional image name prefix
-      #namePrefix: system-
+      namePrefix: dev-
       # Optional images passed to "kustomize edit set image".
       #images:
       #- logindotgov/pretend-app
@@ -31,7 +31,7 @@ spec:
   # Destination cluster and namespace to deploy the application
   destination:
     server: https://kubernetes.default.svc
-    namespace: kube-system
+    namespace: idp
 
   # Sync policy
   syncPolicy:
