@@ -44,6 +44,10 @@ spec:
     kind: Ingress
   - group: ''
     kind: Service
+  - group: 'batch'
+    kind: Job
+  - group: 'autoscaling'
+    kind: HorizontalPodAutoscaler
 
   # Enables namespace orphaned resource monitoring.
   orphanedResources:
