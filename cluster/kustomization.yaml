@@ -1,0 +1,11 @@
+resources:
+  - ../base/argocd/
+  - ./system/
+  - ./idp/
+
+patches:
+- patch: |-
+    - op: replace
+      path: /spec/source/targetRevision
+      value: HEAD
+
