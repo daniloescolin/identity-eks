@@ -48,6 +48,8 @@ spec:
     kind: Job
   - group: 'autoscaling'
     kind: HorizontalPodAutoscaler
+  - group: 'flagger.app'
+    kind: Canary
 
   # Enables namespace orphaned resource monitoring.
   orphanedResources:
