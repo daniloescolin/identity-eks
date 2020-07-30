@@ -36,6 +36,24 @@ data:
       }
     }
 ---
+# Source: logstash/templates/service-headless.yaml
+kind: Service
+apiVersion: v1
+metadata:
+  name: "logstash-logstash-headless"
+  labels:
+    app: "logstash-logstash"
+    chart: "logstash"
+    heritage: "Helm"
+    release: "logstash"
+spec:
+  clusterIP: None
+  selector:
+    app: "logstash-logstash"
+  ports:
+  - name: http
+    port: 9600
+---
 # Source: logstash/templates/service.yaml
 kind: Service
 apiVersion: v1
@@ -76,7 +94,7 @@ metadata:
     heritage: "Helm"
     release: "logstash"
 spec:
-  serviceName: logstash-logstash
+  serviceName: logstash-logstash-headless
   selector:
     matchLabels:
       app: "logstash-logstash"
@@ -94,9 +112,7 @@ spec:
         heritage: "Helm"
         release: "logstash"
       annotations:
-        
         configchecksum: 1e980342c79087f8a544af4d5eaf182d735d24796960c32171dbd0cbe0eedab
-        
     spec:
       securityContext:
         fsGroup: 1000
@@ -124,7 +140,7 @@ spec:
             - ALL
           runAsNonRoot: true
           runAsUser: 1000
-        image: "docker.elastic.co/logstash/logstash:7.8.0"
+        image: "docker.elastic.co/logstash/logstash:7.8.1"
         imagePullPolicy: "IfNotPresent"
         livenessProbe:
           failureThreshold: 3

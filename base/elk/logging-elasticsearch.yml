@@ -124,7 +124,7 @@ spec:
         securityContext:
           runAsUser: 0
           privileged: true
-        image: "docker.elastic.co/elasticsearch/elasticsearch:7.8.0"
+        image: "docker.elastic.co/elasticsearch/elasticsearch:7.8.1"
         imagePullPolicy: "IfNotPresent"
         command: ["sysctl", "-w", "vm.max_map_count=262144"]
         resources:
@@ -138,7 +138,7 @@ spec:
             - ALL
           runAsNonRoot: true
           runAsUser: 1000
-        image: "docker.elastic.co/elasticsearch/elasticsearch:7.8.0"
+        image: "docker.elastic.co/elasticsearch/elasticsearch:7.8.1"
         imagePullPolicy: "IfNotPresent"
         readinessProbe:
           exec:
@@ -267,7 +267,7 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: "elasticsearch-logging-cxoav-test"
+  name: "elasticsearch-logging-svcex-test"
   annotations:
     "helm.sh/hook": test-success
 spec:
@@ -275,8 +275,9 @@ spec:
     fsGroup: 1000
     runAsUser: 1000
   containers:
-  - name: "elasticsearch-logging-ssdhy-test"
-    image: "docker.elastic.co/elasticsearch/elasticsearch:7.8.0"
+  - name: "elasticsearch-logging-jztbt-test"
+    image: "docker.elastic.co/elasticsearch/elasticsearch:7.8.1"
+    imagePullPolicy: "IfNotPresent"
     command:
       - "sh"
       - "-c"
