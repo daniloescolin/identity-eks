@@ -11,7 +11,7 @@ resource "aws_eks_node_group" "secops" {
   instance_types  = ["t3a.large"]
 
   scaling_config {
-    desired_size = 4
+    desired_size = 6
     max_size     = 8
     min_size     = 2
   }
