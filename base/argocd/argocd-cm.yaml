@@ -6,4 +6,4 @@ metadata:
     app.kubernetes.io/name: argocd-cm
     app.kubernetes.io/part-of: argocd
 data:
-    kustomize.version.v3.8.1: /custom-tools/kustomize_3_8_1
+    kustomize.version.default: /usr/local/bin/kustomize
