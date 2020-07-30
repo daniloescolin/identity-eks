@@ -15,7 +15,7 @@ volumeClaimTemplate:
       storage: 90Gi
 
 # This is how many ES nodes we want
-replicas: 3
+replicas: 4
 
 lifecycle:
   postStart:
