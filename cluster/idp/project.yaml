@@ -15,9 +15,11 @@ spec:
   - 'https://github.com/timothy-spencer/idp-dev.git'
   - 'https://github.com/timothy-spencer/identity-eks.git'
 
-  # Only permit applications to deploy to the guestbook namespace in the same cluster
+  # Only permit applications to deploy to the proper namespaces in the same cluster
   destinations:
   - namespace: idp
+    server: https://kubernetes.default.svc
+  - namespace: test
     server: https://kubernetes.default.svc
 
   # Deny all cluster-scoped resources from being created, except for Namespace

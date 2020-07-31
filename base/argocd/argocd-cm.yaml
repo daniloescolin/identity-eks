@@ -7,3 +7,4 @@ metadata:
     app.kubernetes.io/part-of: argocd
 data:
     kustomize.version.default: /usr/local/bin/kustomize
+    users.anonymous.enabled: "true"
